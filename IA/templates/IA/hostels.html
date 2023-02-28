@@ -1,0 +1,26 @@
+{% extends 'IA/main_page.html' %}
+
+{% block content %}
+<center>
+<h1> Hostels </h1>
+<br/>
+<table class="table table-hover w3-center table-striped table-bordered" style="width: 80%">
+
+{% for hostels in hostels_list%}
+<tr>
+    <td>
+        <a href = "{% url 'IA:show_hostels' hostels.id %}"> {{ hostels }} </a> <br/>
+    </td>
+    <td>
+        <a href = "{% url 'IA:update_hostels' hostels.id %}" class="btn btn-outline-secondary btn-sm"> update </a> 
+    </td>
+    <td>
+        <a href = "{% url 'IA:delete_hostels' hostels.id %}" class="btn btn-outline-danger btn-sm"> delete </a> 
+    </td>
+</tr>
+
+{% endfor %}
+</center>
+
+
+{% endblock %}

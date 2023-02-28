@@ -1,0 +1,18 @@
+{% extends 'IA/main_page.html' %}
+
+{% block content %}
+    <center>
+
+        {% if hcin %}
+            <h1 >You searched for hostels with rooms avaliable from {{ cin }} to {{ cout }}, with the avaliable room for {{ adults }} adults and {{ kids }} children.</h1>
+            <br/>
+                {% for hostels in hcin %}
+                    <a href = "{% url 'IA:show_hostels' hostels.id %}"> {{ hostels }} </a> <br/>
+                {% endfor %}
+        {% else %}
+            <h1>Sorry, but there is no avaliable space at the time you requested</h1>
+        {% endif %}
+
+        
+    </center>   
+{% endblock %}

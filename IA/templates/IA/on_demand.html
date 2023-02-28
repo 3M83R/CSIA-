@@ -1,0 +1,69 @@
+{% extends 'IA/main_page.html' %}
+
+{% block content %}
+{% if messages %}
+{% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <div class="alert row alert-success alert-dismissible fade show" id="alert" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" id="close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+        <div class="alert row alert-warning alert-dismissible fade show" id="alert" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" id="close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+{% endfor %}
+{% endif %}
+
+
+<body class="p-3 m-0 border-0 bd-example">
+<form method="POST" enctype="multipart/form-data" class="p-3 m-0 border-0 bd-example">
+<h1>On Demand</h1>
+<h3>If you have any demands we can offer, please fill in the form below! </br>
+    We would love to fulfill your demands if we could. After the form our admin will contact you shortly!
+</h3>
+<br>
+
+    {% csrf_token %}
+
+<div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Your First Name</span>
+    {{ context.on_demand.first_name }}
+</div>
+
+<div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Your Email</span>
+    {{ context.on_demand.email }}
+</div>
+
+<div class="input-group mb-3">
+    <div class="input-group-text">
+        {{ context.on_demand.guide }}
+    </div>
+    <span class="input-group-text" id="basic-addon1">Guide?</span>
+</div>
+
+<div class="input-group mb-3">
+    <div class="input-group-text">
+        {{ context.on_demand.guide_tours }}
+    </div>
+    <span class="input-group-text" id="basic-addon1">Guide tours?</span>
+</div>
+
+<div class="input-group mb-3">
+    <div class="input-group-text">
+        {{ context.on_demand.car_rental }}
+    </div>
+    <span class="input-group-text" id="basic-addon1">Car Rental?</span>
+</div>
+<input type="submit" value="Submit">
+</form>
+
+
+
+
+
+
+{% endblock %}
