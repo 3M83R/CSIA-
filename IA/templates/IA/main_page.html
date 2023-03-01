@@ -24,41 +24,23 @@
 </style>
 <script>
   $( function() {
-    var dateFormat = "yy-mm-dd",
-      from = $( "#from" ).datepicker({
-          defaultDate: "+1w",
-          changeMonth: true,
-          numberOfMonths: 3,
-          minDate: 0,
-          dateFormat: "yy-mm-dd"
-        })
-        .on( "change", function() {
-          to.datepicker( "option", "minDate", getDate( this ) );
-        }),
-      to = $( "#to" ).datepicker({
-        defaultDate: "+1w",
-        changeMonth: true,
-        numberOfMonths: 3,
-        dateFormat: "yy-mm-dd",
-        minDate: 0,
-        maxDate: "+1Y"
-      })
-      .on( "change", function() {
-        from.datepicker( "option", "maxDate", getDate( this ) );
-      });
-
-    function getDate( element ) {
-      var date;
-      try {
-        date = $.datepicker.parseDate( dateFormat, element.value );
-      } catch( error ) {
-        date = null;
-      }
-
-      return date;
-    }
+    $( "#CheckIn" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      defaultDate: "+1D",
+      minDate: 0,
+      dateFormat: "yy-mm-dd"
+    });
+    $( "#CheckOut" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      defaultDate: "+1w",
+      dateFormat: "yy-mm-dd",
+      minDate: 0,
+      maxDate: "+2W"
+    });
   } );
-</script>
+  </script>
 </head>
 <body class="w3-light-grey">
 
@@ -76,8 +58,8 @@
 {% block content %}
 
 <!-- Header -->
-<header class="w3-display-container w3-content" style="max-width:100%; max-height:100%;">
-  <img class="w3-image" src="static/IA/images/background.jpg" alt="The Wat Rong Khun" style="min-width:1000px; transform: scaleX(-1);">
+<header class="w3-display-container w3-content" style="max-width:1920px;">
+  <img class="w3-image" src="static/IA/images/Wat.jpg" alt="The Wat Rong Khun" width="1920px" height="1081px" style="min-width:1000px;">
   <div class="w3-display-left w3-padding w3-col l6 m8" id="Book_now">
     <div class="w3-container bgcolor">
       <h2><em class="fa fa-bed w3-margin-right"></em>Stay @ Thailand</h2>
@@ -90,11 +72,11 @@
         <div class="w3-row-padding" style="margin:0 -16px;">
           <div class="w3-half w3-margin-bottom">
             <label><i class="fa fa-calendar-o"></i> Check In</label><br>
-            <input type="text" id="from" class="w3-input w3-border" name="cin" required>
+            <input type="text" id="CheckIn" class="w3-input w3-border" name="cin" required>
           </div>
           <div class="w3-half">
             <label><i class="fa fa-calendar-o"></i> Check Out</label><br>
-            <input type="text" id="to" class="w3-input w3-border" name="cout" required>
+            <input type="text" id="CheckOut" class="w3-input w3-border" name="cout" required>
           </div>
         </div>
         <div class="w3-row-padding" style="margin:8px -16px;">
