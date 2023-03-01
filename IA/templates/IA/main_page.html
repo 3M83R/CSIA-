@@ -23,23 +23,28 @@
   body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 </style>
 <script>
+
   $( function() {
     $( "#CheckIn" ).datepicker({
       changeMonth: true,
       changeYear: true,
       defaultDate: "+1D",
-      minDate: 0,
-      dateFormat: "yy-mm-dd"
+      minDate: new Date(),
+      dateFormat: "yy-mm-dd",
+      onSelect: function(dateText, inst){
+        $("#CheckOut").datepicker("option","minDate",
+        $("#CheckIn").datepicker("getDate"));
+    }
     });
+
     $( "#CheckOut" ).datepicker({
       changeMonth: true,
       changeYear: true,
       defaultDate: "+1w",
       dateFormat: "yy-mm-dd",
-      minDate: 0,
-      maxDate: "+2W"
     });
   } );
+
   </script>
 </head>
 <body class="w3-light-grey">
@@ -58,9 +63,9 @@
 {% block content %}
 
 <!-- Header -->
-<header class="w3-display-container w3-content" style="max-width:1920px;">
-  <img class="w3-image" src="static/IA/images/Wat.jpg" alt="The Wat Rong Khun" width="1920px" height="1081px" style="min-width:1000px;">
-  <div class="w3-display-left w3-padding w3-col l6 m8" id="Book_now">
+<header class="w3-display-container w3-content" style="max-width:1920px">
+  <img class="w3-image" src="static/IA/images/Wat.jpg" alt="The Wat Rong Khun" style="min-width:1024px">
+  <div class="resize w3-display-left w3-padding w3-col l6 m8" id="Book_now">
     <div class="w3-container bgcolor">
       <h2><em class="fa fa-bed w3-margin-right"></em>Stay @ Thailand</h2>
     </div>

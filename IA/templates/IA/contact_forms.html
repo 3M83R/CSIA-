@@ -1,0 +1,19 @@
+{% extends 'IA/main_page.html' %}
+
+{% block content %}
+<br/>
+<div class="card center" style="width:70%;">
+    <div class="card-header">
+                {{ contactf.first_name }}
+    </div>
+    <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">The first name of this customer is: {{ contactf.first_name }}</li>
+            <li class="list-group-item">The email of this customer is: {{ contactf.email }}</li>
+            <li class="list-group-item">What the customer wants to say/ Their message towards us: {{ contactf.message }}</li>
+
+    </ul>
+</div>
+
+
+{% endblock %}

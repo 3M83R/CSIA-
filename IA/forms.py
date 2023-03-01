@@ -15,7 +15,7 @@ today2 = today1 + timedelta(weeks=157)
 class Addhostels(forms.ModelForm):
     class Meta:
         model = hostels
-        fields = ['name', 'checkindate', 'checkoutdate', 'address', 'adults', 'children', 'descriptions', 'distance', 'image']
+        fields = ['name', 'checkindate', 'checkoutdate', 'address', 'adults', 'children', 'descriptions', 'distance', 'image', 'price_per_night']
         widgets = {
             'name': forms.TextInput(
                 attrs={
@@ -77,6 +77,12 @@ class Addhostels(forms.ModelForm):
                     'multiple' : True,
                     'id' : "image",
                     'name' : "files",
+                }
+            ),
+        'price_per_night': forms.NumberInput(
+                attrs={
+                    'class' : "form-control",
+                    'placeholder' : "The price for one night",
                 }
             ),
         }

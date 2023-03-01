@@ -1,0 +1,20 @@
+{% extends 'IA/main_page.html' %}
+
+{% block content %}
+<center>
+<h1> Messages </h1>
+<br/>
+<table class="table table-hover w3-center table-striped table-bordered" style="width: 80%">
+
+{% for Customers in contact_list%}
+<tr>
+    <td>
+        <a href = "{% url 'IA:contact_forms' Customers.id %}"> {{ Customers.first_name }}</a> <br/>
+    </td>
+</tr>
+
+{% endfor %}
+</center>
+
+
+{% endblock %}

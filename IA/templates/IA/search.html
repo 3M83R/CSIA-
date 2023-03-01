@@ -4,15 +4,26 @@
     <center>
 
         {% if hcin %}
-            <h1 >You searched for hostels with rooms avaliable from {{ cin }} to {{ cout }}, with the avaliable room for {{ adults }} adults and {{ kids }} children.</h1>
+        <br>
+            <h3 class="p-3 mb-2 bgcolor2 text-bgcolor2" >You searched for hostels with rooms avaliable from {{ cin }} to {{ cout }}, with the avaliable room for {{ adults }} adults and {{ kids }} children.</h1>
             <br/>
                 {% for hostels in hcin %}
-                    <a href = "{% url 'IA:show_hostels' hostels.id %}"> {{ hostels }} </a> <br/>
+
+                    <div class="card" style="width: 36rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ hostels.name }}</h5>
+                            <p class="card-text">{{ hostels.description }}</p>
+                            <a href="{% url 'IA:show_hostels' hostels.id %}" class="btn btn-primary">Click me to see more</a>
+                        </div>
+                        <img src=" {{ hostels.image.url }} " class="card-img-bottom" alt="...">
+                    </div>
+
+                    <br>
+    
                 {% endfor %}
         {% else %}
             <h1>Sorry, but there is no avaliable space at the time you requested</h1>
         {% endif %}
 
-        
     </center>   
 {% endblock %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect
 from .forms import ContactForm, Addhostels, OnDemandForm
-from .models import  hostels
+from .models import  hostels, Customers, OnDemand
 from django.contrib import messages
 from django.db.models import Q 
 from django.urls import reverse
@@ -139,3 +139,24 @@ def delete_hostels(request, hostel_id):
 
 ################################################################
 
+def contact_forms(request, c_id):
+  contactf = Customers.objects.get(pk=c_id)
+  return render(request, 'IA/contact_forms.html', { 'contactf': contactf})
+
+################################################################
+
+def list_contacts(request):
+  contact_list = Customers.objects.all()
+  return render(request, 'IA/contact_list.html', {'contact_list' : contact_list})
+
+################################################################
+
+def demand_forms(request, d_id):
+  demandf = OnDemand.objects.get(pk=d_id)
+  return render(request, 'IA/demand_form.html', { 'demandf': demandf})
+
+################################################################
+
+def list_demands(request):
+  demand_list = OnDemand.objects.all()
+  return render(request, 'IA/demand_list.html', {'demand_list' : demand_list})

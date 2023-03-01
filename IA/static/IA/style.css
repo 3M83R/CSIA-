@@ -19,5 +19,9 @@
 
 .image{
     height: 100%;
-    
+}
+
+.resize {
+    resize: both;
+    overflow: auto;
 }

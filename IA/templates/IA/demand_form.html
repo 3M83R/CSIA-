@@ -1,0 +1,21 @@
+{% extends 'IA/main_page.html' %}
+
+{% block content %}
+<br/>
+<div class="card center" style="width:70%;">
+    <div class="card-header">
+                {{ demandf.first_name }}
+    </div>
+    <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">The first name of this customer is: {{ demandf.first_name }}</li>
+            <li class="list-group-item">The email of this customer is: {{ demandf.email }}</li>
+            <li class="list-group-item">They want guidance? {{ demandf.guide }}</li>
+            <li class="list-group-item">They want guidance tours? {{ demandf.guide_tours }}</li>
+            <li class="list-group-item">They want car rental? {{ demandf.car_rental }}</li>
+
+    </ul>
+</div>
+
+
+{% endblock %}

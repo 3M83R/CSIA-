@@ -1,6 +1,7 @@
 {% extends 'IA/main_page.html' %}
 
 {% block content %}
+<div style="max-width:auto;">
 {% if messages %}
 {% for message in messages %}
     {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
@@ -16,6 +17,7 @@
     {% endif %}
 {% endfor %}
 {% endif %}
+</div>
 
 
 <body class="p-3 m-0 border-0 bd-example">
@@ -60,10 +62,6 @@
 </div>
 <input type="submit" value="Submit">
 </form>
-
-
-
-
 
 
 {% endblock %}

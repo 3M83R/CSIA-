@@ -12,12 +12,14 @@
             <li class="list-group-item">The maximum numbers of adults that can stay in a room: {{ hostel.adults }}</li>
             <li class="list-group-item">The maximum numbers of children that can stay in a room: {{ hostel.children }}</li>
             <li class="list-group-item">This hostel is {{ hostel.distance }} KM away from the city center.</li>
+            <li class="list-group-item">Price per night: ฿{{ hostel.price_per_night }} </li>
             <li class="list-group-item">Description: {{ hostel.descriptions }}</li>
             <li class="list-group-item">Image of the hostel: 
             {% if hostel.image %}
             <img src = " {{ hostel.image.url }} " class="center" alt="">
             {% endif %}
             </li>
+            
 
     </ul>
 </div>
