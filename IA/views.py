@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from .forms import ContactForm, Addhostels, OnDemandForm
 from .models import  hostels, Customers, OnDemand
 from django.contrib import messages
 from django.db.models import Q 
 from django.urls import reverse
+from django.views.generic import ListView, FormView
 
 # Create your views here.
 ################################################################
@@ -127,7 +128,7 @@ def admin_page(request):
 ################################################################
 
 def list_hostels(request):
-  hostels_list = hostels.objects.all()
+  hostels_list = hostels.objects.all().order_by('name')
   return render(request, 'IA/hostels.html', {'hostels_list' : hostels_list})
 
 ################################################################
@@ -160,3 +161,6 @@ def demand_forms(request, d_id):
 def list_demands(request):
   demand_list = OnDemand.objects.all()
   return render(request, 'IA/demand_list.html', {'demand_list' : demand_list})
+
+################################################################
+

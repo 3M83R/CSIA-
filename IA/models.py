@@ -2,6 +2,7 @@ import datetime
 from django.db import models
 from django.utils import timezone
 from django.core.validators import MaxValueValidator, MinValueValidator 
+from django.conf import settings
 
 class hostels(models.Model):
     name = models.CharField('Hostels name', max_length=120)
@@ -19,12 +20,6 @@ class hostels(models.Model):
 
     def __str__(self):
         return self.name
-
-# class rating(models.Model):
-#     hostel = models.ForeignKey(hostels, on_delete=models.CASCADE)
-#     rating = models.DecimalField(max_digits=2, decimal_places=1, null=True, blank=True, validators=[MinValueValidator(0)])
-    
-
 
 class admin(models.Model):
     username = models.CharField(max_length=120)
@@ -56,4 +51,3 @@ class OnDemand(models.Model):
     guide = models.BooleanField(blank = True)
     guide_tours = models.BooleanField(blank = True)
     car_rental = models.BooleanField(blank = True)
-

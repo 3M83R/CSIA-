@@ -20,10 +20,16 @@
 
 
 
+
 <body class="p-3 m-0 border-0 bd-example">
+    
 <form method="POST" enctype="multipart/form-data" class="p-3 m-0 border-0 bd-example">
 
+
+
     {% csrf_token %}
+
+</br>
 
 <div class="input-group mb-3">
     <span class="input-group-text" id="HNA">Hostel's name</span>
@@ -42,9 +48,9 @@
 </div>
 
 <div class="input-group mb-3">
-    <span class="input-group-text">Check In</span>
+    <span class="input-group-text">Avaliabe from</span>
     {{ context.add.checkindate }}
-    <span class="input-group-text">Check Out</span>
+    <span class="input-group-text">Till:</span>
     {{ context.add.checkoutdate }}
 
     <span class="input-group-text">Number of Adult(s)</span>
@@ -74,9 +80,10 @@
 
 
 </br>
-<div class="input-group mb-3">
-<input type="submit" value="submit">
-</div>
+
+<input class="btn btn-outline-success btn-bg" type="submit" value="Submit">
+
+<a href ="/admin_page" class="btn btn-outline-danger btn-bg"> Back to admin. </a> <br>
 </form>
 
 

@@ -28,7 +28,7 @@
 
 <form action="" method="POST">{% csrf_token %}
     {{ context.contact_form.as_p}}
-    <p><button class="w3-button w3-black w3-padding-large" type="submit">SEND MESSAGE</button></p>
+    <p><button class="btn btn-outline-primary w3-padding-large" type="submit">SEND MESSAGE</button></p>
 </form>
 </div>
 <div class="w3-row-padding w3-large w3-center" style="margin:32px 0">
@@ -37,8 +37,8 @@
     <div class="w3-third"><i class="fa fa-envelope w3-text-red"></i> Email: stayatcr@gmail.com</div>
 </div>
 
-<div class="w3-panel w3-red w3-padding-32" style="margin-bottom:-16px">
-    <h6><i class="fa fa-info w3-deep-orange w3-padding w3-margin-right"></i> On demand, we can offer guides, guide tours and car rental recommendations. For more details, please <a href="on_demand" style="color: black">click here.</a></h6>
+<div class="w3-panel bgcolor w3-padding-32" style="margin-bottom:-16px">
+    <h6><i class="fa fa-info bgcolor2 w3-padding w3-margin-right"></i> On demand, we can offer guides, guide tours and car rental recommendations. For more details, please <a href="on_demand" style="color: black">click here.</a></h6>
 </div>
 
 {% endblock %}

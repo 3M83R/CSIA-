@@ -15,4 +15,5 @@ class Customer_admin(admin.ModelAdmin):
 admin.site.register(reservations)
 admin.site.register(hostels)
 
+
 # Register your models here

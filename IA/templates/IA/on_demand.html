@@ -19,48 +19,61 @@
 {% endif %}
 </div>
 
-
+<center>
 <body class="p-3 m-0 border-0 bd-example">
-<form method="POST" enctype="multipart/form-data" class="p-3 m-0 border-0 bd-example">
-<h1>On Demand</h1>
-<h3>If you have any demands we can offer, please fill in the form below! </br>
+<br>
+<h3 class="p-3 mb-2 bgcolor2 text-bgcolor2">On Demands: <br> If you have any demands we can offer, please fill in the form below!
     We would love to fulfill your demands if we could. After the form our admin will contact you shortly!
 </h3>
-<br>
+</center>
 
+<form method="POST" enctype="multipart/form-data" class="p-3 m-0 border-0 bd-example">
     {% csrf_token %}
-
-<div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">Your First Name</span>
-    {{ context.on_demand.first_name }}
-</div>
-
-<div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">Your Email</span>
-    {{ context.on_demand.email }}
-</div>
-
-<div class="input-group mb-3">
-    <div class="input-group-text">
-        {{ context.on_demand.guide }}
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Your first name: </label>
+            <div class="col-sm-10">
+                {{ context.on_demand.first_name }}
+            </div>
     </div>
-    <span class="input-group-text" id="basic-addon1">Guide?</span>
-</div>
 
-<div class="input-group mb-3">
-    <div class="input-group-text">
-        {{ context.on_demand.guide_tours }}
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Your email:</label>
+            <div class="col-sm-10">
+                {{ context.on_demand.email }}
+            </div>
     </div>
-    <span class="input-group-text" id="basic-addon1">Guide tours?</span>
-</div>
 
-<div class="input-group mb-3">
-    <div class="input-group-text">
-        {{ context.on_demand.car_rental }}
+    <div class="row mb-3">
+        <div class="col-sm-10 offset-sm-2">
+            <div class="form-check">
+                {{ context.on_demand.guide }}
+                <label class="form-check-label" for="gridCheck1">
+                Guide?
+                </label>
+            </div>
+        </div>
     </div>
-    <span class="input-group-text" id="basic-addon1">Car Rental?</span>
-</div>
-<input type="submit" value="Submit">
+    <div class="row mb-3">
+        <div class="col-sm-10 offset-sm-2">
+            <div class="form-check">
+                {{ context.on_demand.guide_tours }}
+                <label class="form-check-label" for="gridCheck1">
+                Guide Tours?
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-10 offset-sm-2">
+            <div class="form-check">
+                {{ context.on_demand.car_rental }}
+                <label class="form-check-label" for="gridCheck1">
+                Car rental?
+                </label> 
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
 

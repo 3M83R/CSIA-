@@ -5,6 +5,7 @@
 
 <body class="p-3 m-0 border-0 bd-example">
 <form method=POST action="" enctype="multipart/form-data" class="p-3 m-0 border-0 bd-example">
+
     <h1>Updates....</h1><br> 
 
     {% csrf_token %}
@@ -12,6 +13,7 @@
 
     
 </br>
-<input type="submit" value="Update" class="btn btn-secondary"
+<input type="submit" value="Update" class="btn btn-outline-secondary">
+<a class="btn btn-outline-danger btn-bg" onclick="history.back()"> Cancel. </a> <br></br>
 
 {% endblock %}
